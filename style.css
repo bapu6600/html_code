@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-bg-color: rgba(9, 103, 223, 0.91);
+}
+
+header {
+    height: 58px;
+    width: 100%;
+    background-color: var(--main-bg-color);
+}
+
+nav ul {
+    display: flex;
+    height: 58px;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+nav ul li {
+    list-style: none;
+    padding: 0px 23px;
+
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Lato', sans-serif;
+}
+nav ul li a:hover {
+    color: rgb(213, 210, 210);
+    
+}
+
+nav {
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    padding: 16px;
+    width: 113px;
+}
+
+main {
+ min-height: calc(100vh - 58px - 12vh);
+    background-color: white;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    height: 58px;
+    
+}
+.search button{
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+}
+.search input{
+    width: 500px;
+    height: 33px;
+    border-radius: 4px;
+    margin: 0px 27px 0px 77px;
+    padding: 0px 12px;
+}
+footer {
+    height: 12vh;
+    background-color: var(--main-bg-color);
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}

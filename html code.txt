@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    stages{
+        
+        stage("checkout"){
+            steps{
+       git credentialsId: '4fa15828-0425-4f3f-923a-27de8380016b', url: 'https://github.com/bapu6600/das.git'
+            }
+        }
+        stage("deploy"){
+            steps{
+                sshagent(['131ed8a8-240e-4181-ad9c-62e814c5e616']) {
+    // some block
+    sh"""
+          scp -o StrictHostKeyChecking=no index.html ec2-user@172.31.33.52:/opt/tomcat10/webapps/rahu
+          scp -o StrictHostKeyChecking=no style.css ec2-user@172.31.33.52:/opt/tomcat10/webapps/rahu
+          scp -o StrictHostKeyChecking=no utils.css ec2-user@172.31.33.52:/opt/tomcat10/webapps/rahu
+        
+          ssh ec2-user@172.31.33.52 /opt/tomcat10/bin/shutdown.sh
+          ssh ec2-user@172.31.33.52 /opt/tomcat10/bin/startup.sh
+        
+       """
+}
+            }
+        }
+    }
+}
